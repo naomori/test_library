@@ -5,7 +5,7 @@ project(hogelib)
 set(proj_topdir ${PROJECT_SOURCE_DIR})
 
 # Source Directory
-set(src_dir ${proj_topdir}/src CACHE FILEPATH "csomeip source directory")
+set(src_dir ${PROJECT_SOURCE_DIR}/src CACHE FILEPATH "csomeip source directory")
 add_subdirectory(src)
 
 if (NOT without-test)
@@ -18,7 +18,8 @@ if (NOT without-test)
     find_package(jansson REQUIRED)
 
     # Test Directory
-    set(test_dir ${proj_topdir}/test CACHE FILEPATH "csomeip test directory")
+    set(test_dir ${PROJECT_SOURCE_DIR}/test
+        CACHE FILEPATH "csomeip test directory")
     add_subdirectory(test)
 endif()
 

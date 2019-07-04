@@ -1,6 +1,3 @@
-//
-// Created by nmorita on 2019/07/02.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -11,6 +8,7 @@
 #include "hoge_private.h"
 
 // prototypes of private functions
+static void self_destroy(struct hoge_struct *self);
 static void inc_x(struct hoge_struct *self, int x);
 static void inc_10(struct hoge_struct *self);
 static bool ge_x(struct hoge_struct *self, int x);
@@ -27,6 +25,7 @@ hoge_new(void)
         return NULL;
     }
     hoge_ptr hoge = (hoge_ptr)h;
+    hoge->self_destroy = self_destroy;
     hoge->inc_x = inc_x;
     hoge->inc_10 = inc_10;
     hoge->ge_x = ge_x;
@@ -35,12 +34,12 @@ hoge_new(void)
 }
 
 void
-hoge_destroy(void *h)
+hoge_destroy(void *self)
 {
-    if (!h) {
+    hoge_ptr hoge = (hoge_ptr)self;
+    if (!hoge->self_destroy)
         return;
-    }
-    free(h);
+    (*hoge->self_destroy)(hoge);
 }
 
 void
@@ -71,6 +70,16 @@ hoge_ge(void *self, int x)
 }
 
 // private functions
+
+static void
+self_destroy(struct hoge_struct *self)
+{
+    if (!self) {
+        return;
+    }
+    free(self);
+}
+
 static void
 inc_x(struct hoge_struct *self, int x)
 {

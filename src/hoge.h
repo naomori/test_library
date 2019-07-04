@@ -1,7 +1,3 @@
-//
-// Created by nmorita on 2019/07/02.
-//
-
 #ifndef TEST_LIBRARY_HOGE_H
 #define TEST_LIBRARY_HOGE_H
 #ifdef __cplusplus
