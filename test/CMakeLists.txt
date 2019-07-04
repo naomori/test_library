@@ -3,8 +3,7 @@ cmake_minimum_required(VERSION 3.11)
 # add_subdirectory(mock)
 # add_subdirectory(spy)
 
-include_directories($CACHE{src_dir} $CACHE{mock_dir} $CACHE{spy_dir}
-                    $CACHE{GTEST_INCLUDE_DIR})
+include_directories(${src_dir} ${mock_dir} ${spy_dir})
 
 link_directories(${src_dir} ${mock_dir} ${spy_dir})
 
@@ -27,6 +26,7 @@ set(CMAKE_EXE_LINKER_FLAGS ${test_coverage_flags})
 file(GLOB HOGE_SOURCES Test_hoge.cpp)
 add_executable(test_hoge ${HOGE_SOURCES})
 target_link_libraries(test_hoge hoge
+                      jansson
                       gtest gmock gtest_main pthread)
 
 add_test(NAME Test_hoge COMMAND test_hoge)

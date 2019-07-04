@@ -1,2 +1,3 @@
 # test_library
-This project is for learning how to use CMake, GoogleTest and Docker.
+This project is for learning how to use CMake, GoogleTest, Docker and
+Doxygen.

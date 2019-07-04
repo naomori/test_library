@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include <jansson.h>
+
 // private definitions
 #include "hoge_private.h"
 

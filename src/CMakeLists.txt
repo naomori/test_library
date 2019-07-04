@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.11)
 
-include_directories($CACHE{src_dir})
+include_directories(${src_dir})
 
 if (NOT without-test)
     set(cmake_c_warning_flags "-Wall -W -Wno-sign-compare")
@@ -26,9 +26,11 @@ message(STATUS "*** test: dump end ***")
 file(GLOB HOGE_SOURCES hoge.c)
 add_library(hoge STATIC ${HOGE_SOURCES})
 
+# install dynamic library
 add_library(libhoge SHARED ${HOGE_SOURCES})
 install(TARGETS libhoge DESTINATION lib)
 
+# install static library
 add_library(libhoge-static STATIC ${HOGE_SOURCES})
 install(TARGETS libhoge-static DESTINATION lib)
 

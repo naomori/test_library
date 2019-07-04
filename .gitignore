@@ -4,3 +4,9 @@
 /gtest/
 /build/
 /.idea/
+/.idea/*
+.idea
+/venv/
+/venv/*
+venv
+.python-version
