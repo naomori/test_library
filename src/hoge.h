@@ -1,5 +1,5 @@
-#ifndef TEST_LIBRARY_HOGE_H
-#define TEST_LIBRARY_HOGE_H
+#ifndef HOGELIB_HOGE_H
+#define HOGELIB_HOGE_H
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
@@ -17,4 +17,4 @@ bool hoge_ge(void *self, int x);
 #ifdef __cplusplus
 }
 #endif // __cplusplus
-#endif //TEST_LIBRARY_HOGE_H
+#endif //HOGELIB_HOGE_H

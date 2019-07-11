@@ -11,5 +11,5 @@ endforeach()
 message(STATUS "*** test: dump end ***")
 ]]
 
-file(GLOB MOCK_OSAL_SOURCES Mock_osal.cpp)
+file(GLOB MOCK_OSAL_SOURCES mock_osal.cpp)
 add_library(mock_osal STATIC ${MOCK_OSAL_SOURCES})

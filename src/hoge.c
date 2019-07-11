@@ -1,9 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
 
-#include <jansson.h>
-
+#include "hoge_osal.h"
 // private definitions
 #include "hoge_private.h"
 
@@ -19,9 +17,9 @@ void *
 hoge_new(void)
 {
     void *h;
-    h = calloc(1, sizeof(struct hoge_struct));
+    h = osal_calloc(1, sizeof(struct hoge_struct));
     if (!h) {
-        fprintf(stderr, "failed to calloc: %m");
+        fprintf(stderr, "failed to osal_calloc: %m");
         return NULL;
     }
     hoge_ptr hoge = (hoge_ptr)h;
@@ -77,7 +75,7 @@ self_destroy(struct hoge_struct *self)
     if (!self) {
         return;
     }
-    free(self);
+    osal_free(self);
 }
 
 static void

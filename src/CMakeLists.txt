@@ -23,6 +23,12 @@ endforeach()
 message(STATUS "*** test: dump end ***")
 ]]
 
+file(GLOB OSAL_SOURCES hoge_osal.c)
+add_library(osal STATIC ${OSAL_SOURCES})
+
+file(GLOB SOAL_SOURCES hoge_soal.c)
+add_library(soal STATIC ${SOAL_SOURCES})
+
 file(GLOB HOGE_SOURCES hoge.c)
 add_library(hoge STATIC ${HOGE_SOURCES})
 
