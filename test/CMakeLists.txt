@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.10)
 
 set(spy_dir ${test_dir}/spy CACHE FILEPATH "csomeip spy directory")
 add_subdirectory(spy)
